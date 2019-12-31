@@ -7,18 +7,3 @@ before_install:
 
 script:
   - docker run -e CI=true epsyl0n/react-test npm run test
-
-after_success:
-  - docker build -t epsyl0n/multi-client ./client
-  - docker build -t epsyl0n/multi-nginx ./nginx
-  - docker build -t epsyl0n/multi-server ./server
-  - docker build -t epsyl0n/multi-worker ./worker
-
-# Login in to the docker CLI
-script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-# Take those images an send them to docker hub
-  - docker push epsyl0n/multi-client
-  - docker push epsyl0n/multi-nginx
-  - docker push epsyl0n/multi-server
-  - docker push epsyl0n/multi-worker
