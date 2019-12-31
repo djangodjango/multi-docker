@@ -16,10 +16,9 @@ after_success:
 
 # Login in to the docker CLI
 script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take those images an send them to docker hub
   - docker push epsyl0n/multi-client
   - docker push epsyl0n/multi-nginx
   - docker push epsyl0n/multi-server
   - docker push epsyl0n/multi-worker
-  
