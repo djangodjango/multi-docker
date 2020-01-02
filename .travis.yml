@@ -22,6 +22,7 @@ after_success:
   - docker push epsyl0n/multi-worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: eu-west-3
   app: multi-docker
